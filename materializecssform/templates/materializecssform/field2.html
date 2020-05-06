@@ -13,13 +13,15 @@
             {% if classes.icon %}
                 {% include 'materializecssform/field_icon.html' %}
             {% endif %}
-            <label>
+            <p>
+              <label>
 
                     {{ field }}
                     {% if field.auto_id %}
-                        <span>{{ field.label }}</span>
+                        <span style="height:auto;" >{{ field.label }}</span>
                     {% endif %}
-            </label>
+              </label>
+            </p>
                     {% for error in field.errors %}
                         <div class="input-error">{{ error }}</div>
                     {% endfor %}
@@ -42,10 +44,12 @@
             <span>{{ field.label }}</span><br>
         {% endif %}
       {% for radio in field %}
-          <label>
-            <input class="with-gap" name="{{ field.name }}" type="radio" value="{{ radio.data.value }}" {% if field.value|stringformat:"s" == radio.data.value|stringformat:"s" %}checked{% endif %} />
-            <span>{{ radio.data.label }}</span>
-          </label><br>
+          <p>
+            <label>
+              <input class="with-gap" name="{{ field.name }}" type="radio" value="{{ radio.data.value }}" {% if field.value|stringformat:"s" == radio.data.value|stringformat:"s" %}checked{% endif %} />
+              <span   style="height:auto;">{{ radio.data.label }}</span>
+            </label>
+          </p>
       {% endfor %}
       {% for error in field.errors %}
           <div class="input-error">{{ error }}</div>
